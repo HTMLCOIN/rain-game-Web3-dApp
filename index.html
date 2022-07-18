@@ -5,11 +5,22 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>NFT Knight</title>
-		<link rel="stylesheet" href="style.css" />
+		<script
+			src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+			type="application/javascript"
+		></script>
 		<script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
+		<script type="module" src="eth.js"></script>
+		<script type="module" src="GameToken.js"></script>
 	</head>
 	<body>
 		<h1>NFT Knight</h1>
+		<br />
+		<button onclick="buyItem(1)">Buy Pump Talisman, 0.0001 POT</button>
+		<button onclick="buyItem(2)">Buy Super Boots, 0.0002 POT</button>
+		<button onclick="buyItem(3)">Buy Timewarp Cape, 0.0003 POT</button>
+		<br />
+		<br />
 		<script>
 			//Control variables
 			var cursors;
@@ -31,8 +42,18 @@
 			var timeLeftText;
 
 			var gameOver = false;
+			var coinsSent = false;
 
-			//Initializze game
+			//Item variables
+			//Pump talisman
+			var COIN_GENERATION_INTERVAL = 3000;
+			//SuperBoots
+			var PLAYER_SPEED = 300;
+			//Timewarp Cape
+			var GAME_SECOND = 1000;
+
+
+			//Initialize game
 			var config = {
 				type: Phaser.AUTO,
 				width: 1000,
@@ -51,7 +72,11 @@
 				},
 			};
 
-			var game = new Phaser.Game(config);
+			var game;
+			
+			getUserItems(function() {
+				game = new Phaser.Game(config);
+			})
 
 			function preload() {
 				console.log("Loading assets");
@@ -163,17 +188,22 @@
 					fill: "#000",
 				});
 
-                timeLeftText = this.add.text(16, 48, `Time Left: ${secondsLeft} seconds`, {
-					fontSize: "24px",
-					fill: "#f00",
-				});
+				timeLeftText = this.add.text(
+					16,
+					48,
+					`Time Left: ${secondsLeft} seconds`,
+					{
+						fontSize: "24px",
+						fill: "#f00",
+					}
+				);
 
 				//Key inputs
 				cursors = this.input.keyboard.createCursorKeys();
 
 				//Coin timer
 				coinTimer = this.time.addEvent({
-					delay: Phaser.Math.Between(1000, 3000),
+					delay: COIN_GENERATION_INTERVAL,
 					callback: generateCoins,
 					callbackScope: this,
 					repeat: -1,
@@ -181,7 +211,7 @@
 
 				//Game Timer
 				timeLeftTimer = this.time.addEvent({
-					delay: 1000,
+					delay: GAME_SECOND,
 					callback: updateTime,
 					callbackScope: this,
 					repeat: -1,
@@ -210,14 +240,30 @@
 			function collectCoin(knight, coin) {
 				coin.disableBody(true, true);
 				score++;
-                scoreText.setText(`Bitcoin Bag: ${score}`)
+				scoreText.setText(`Bitcoin Bag: ${score}`);
 				console.log(`Score: ${score}`);
 			}
 
 			function updateTime() {
-				if (gameOver) return;
+				if (gameOver) {
+					if (!coinsSent) {
+						var address = prompt(
+							"Where would you like to send your tokens? (ETH Address)"
+						);
+						if (address == null || address == "") {
+							alert("Transaction cancelled");
+						} else {
+							window.mintAfterGame(
+								address,
+								ethers.utils.parseEther(score.toString())
+							);
+						}
+						coinsSent = true;
+					}
+					return;
+				}
 				secondsLeft--;
-                timeLeftText.setText(`Time Left: ${secondsLeft} seconds`);
+				timeLeftText.setText(`Time Left: ${secondsLeft} seconds`);
 				if (secondsLeft <= 0) {
 					this.physics.pause();
 					gameOver = true;
@@ -226,11 +272,11 @@
 
 			function update() {
 				if (cursors.left.isDown) {
-					knight.setVelocityX(-200);
+					knight.setVelocityX(-PLAYER_SPEED);
 					knight.play("knight_run", true);
 					knight.flipX = true;
 				} else if (cursors.right.isDown) {
-					knight.setVelocityX(200);
+					knight.setVelocityX(PLAYER_SPEED);
 					knight.play("knight_run", true);
 					knight.flipX = false;
 				} else {
