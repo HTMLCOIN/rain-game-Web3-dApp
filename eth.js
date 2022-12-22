@@ -7,7 +7,7 @@ let gameItemsContract;
 let marketplaceContract;
 
 const initialize = async () => {
-    const provider = new ethers.providers.Web3Provider(window.htmlcoin, "any");
+    const provider = new ethers.providers.Web3Provider(window.altmasq, "any");
     await provider.send("eth_requestAccounts", []);
     const signer = provider.getSigner();
 
