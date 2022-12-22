@@ -1,459 +1,495 @@
 export default [
 	{
-		inputs: [],
-		stateMutability: "nonpayable",
-		type: "constructor",
+		"name": "",
+		"type": "constructor",
+		"payable": false,
+		"inputs": [],
+		"outputs": null,
+		"constant": false,
+		"anonymous": false
 	},
 	{
-		anonymous: false,
-		inputs: [
+		"name": "ApprovalForAll",
+		"type": "event",
+		"payable": false,
+		"inputs": [
 			{
-				indexed: true,
-				internalType: "address",
-				name: "account",
-				type: "address",
+				"name": "account",
+				"type": "address",
+				"indexed": true
 			},
 			{
-				indexed: true,
-				internalType: "address",
-				name: "operator",
-				type: "address",
+				"name": "operator",
+				"type": "address",
+				"indexed": true
 			},
 			{
-				indexed: false,
-				internalType: "bool",
-				name: "approved",
-				type: "bool",
-			},
+				"name": "approved",
+				"type": "bool",
+				"indexed": false
+			}
 		],
-		name: "ApprovalForAll",
-		type: "event",
+		"outputs": null,
+		"constant": false,
+		"anonymous": false
 	},
 	{
-		anonymous: false,
-		inputs: [
+		"name": "OwnershipTransferred",
+		"type": "event",
+		"payable": false,
+		"inputs": [
 			{
-				indexed: true,
-				internalType: "address",
-				name: "previousOwner",
-				type: "address",
+				"name": "previousOwner",
+				"type": "address",
+				"indexed": true
 			},
 			{
-				indexed: true,
-				internalType: "address",
-				name: "newOwner",
-				type: "address",
-			},
+				"name": "newOwner",
+				"type": "address",
+				"indexed": true
+			}
 		],
-		name: "OwnershipTransferred",
-		type: "event",
+		"outputs": null,
+		"constant": false,
+		"anonymous": false
 	},
 	{
-		anonymous: false,
-		inputs: [
+		"name": "TransferBatch",
+		"type": "event",
+		"payable": false,
+		"inputs": [
 			{
-				indexed: true,
-				internalType: "address",
-				name: "operator",
-				type: "address",
+				"name": "operator",
+				"type": "address",
+				"indexed": true
 			},
 			{
-				indexed: true,
-				internalType: "address",
-				name: "from",
-				type: "address",
+				"name": "from",
+				"type": "address",
+				"indexed": true
 			},
 			{
-				indexed: true,
-				internalType: "address",
-				name: "to",
-				type: "address",
+				"name": "to",
+				"type": "address",
+				"indexed": true
 			},
 			{
-				indexed: false,
-				internalType: "uint256[]",
-				name: "ids",
-				type: "uint256[]",
+				"name": "ids",
+				"type": "uint256[]",
+				"indexed": false
 			},
 			{
-				indexed: false,
-				internalType: "uint256[]",
-				name: "values",
-				type: "uint256[]",
-			},
+				"name": "values",
+				"type": "uint256[]",
+				"indexed": false
+			}
 		],
-		name: "TransferBatch",
-		type: "event",
+		"outputs": null,
+		"constant": false,
+		"anonymous": false
 	},
 	{
-		anonymous: false,
-		inputs: [
+		"name": "TransferSingle",
+		"type": "event",
+		"payable": false,
+		"inputs": [
 			{
-				indexed: true,
-				internalType: "address",
-				name: "operator",
-				type: "address",
+				"name": "operator",
+				"type": "address",
+				"indexed": true
 			},
 			{
-				indexed: true,
-				internalType: "address",
-				name: "from",
-				type: "address",
+				"name": "from",
+				"type": "address",
+				"indexed": true
 			},
 			{
-				indexed: true,
-				internalType: "address",
-				name: "to",
-				type: "address",
+				"name": "to",
+				"type": "address",
+				"indexed": true
 			},
 			{
-				indexed: false,
-				internalType: "uint256",
-				name: "id",
-				type: "uint256",
+				"name": "id",
+				"type": "uint256",
+				"indexed": false
 			},
 			{
-				indexed: false,
-				internalType: "uint256",
-				name: "value",
-				type: "uint256",
-			},
+				"name": "value",
+				"type": "uint256",
+				"indexed": false
+			}
 		],
-		name: "TransferSingle",
-		type: "event",
+		"outputs": null,
+		"constant": false,
+		"anonymous": false
 	},
 	{
-		anonymous: false,
-		inputs: [
+		"name": "URI",
+		"type": "event",
+		"payable": false,
+		"inputs": [
 			{
-				indexed: false,
-				internalType: "string",
-				name: "value",
-				type: "string",
+				"name": "value",
+				"type": "string",
+				"indexed": false
 			},
 			{
-				indexed: true,
-				internalType: "uint256",
-				name: "id",
-				type: "uint256",
-			},
+				"name": "id",
+				"type": "uint256",
+				"indexed": true
+			}
 		],
-		name: "URI",
-		type: "event",
+		"outputs": null,
+		"constant": false,
+		"anonymous": false
 	},
 	{
-		inputs: [],
-		name: "PumpTalisman",
-		outputs: [
+		"name": "PumpTalisman",
+		"type": "function",
+		"payable": false,
+		"inputs": [],
+		"outputs": [
 			{
-				internalType: "uint256",
-				name: "",
-				type: "uint256",
-			},
+				"name": "",
+				"type": "uint256",
+				"indexed": false
+			}
 		],
-		stateMutability: "view",
-		type: "function",
+		"constant": false,
+		"anonymous": false
 	},
 	{
-		inputs: [],
-		name: "SuperBoots",
-		outputs: [
+		"name": "SuperBoots",
+		"type": "function",
+		"payable": false,
+		"inputs": [],
+		"outputs": [
 			{
-				internalType: "uint256",
-				name: "",
-				type: "uint256",
-			},
+				"name": "",
+				"type": "uint256",
+				"indexed": false
+			}
 		],
-		stateMutability: "view",
-		type: "function",
+		"constant": false,
+		"anonymous": false
 	},
 	{
-		inputs: [],
-		name: "TimewarpCape",
-		outputs: [
+		"name": "TimewarpCape",
+		"type": "function",
+		"payable": false,
+		"inputs": [],
+		"outputs": [
 			{
-				internalType: "uint256",
-				name: "",
-				type: "uint256",
-			},
+				"name": "",
+				"type": "uint256",
+				"indexed": false
+			}
 		],
-		stateMutability: "view",
-		type: "function",
+		"constant": false,
+		"anonymous": false
 	},
 	{
-		inputs: [
+		"name": "balanceOf",
+		"type": "function",
+		"payable": false,
+		"inputs": [
 			{
-				internalType: "address",
-				name: "account",
-				type: "address",
+				"name": "account",
+				"type": "address",
+				"indexed": false
 			},
 			{
-				internalType: "uint256",
-				name: "id",
-				type: "uint256",
-			},
+				"name": "id",
+				"type": "uint256",
+				"indexed": false
+			}
 		],
-		name: "balanceOf",
-		outputs: [
+		"outputs": [
 			{
-				internalType: "uint256",
-				name: "",
-				type: "uint256",
-			},
+				"name": "",
+				"type": "uint256",
+				"indexed": false
+			}
 		],
-		stateMutability: "view",
-		type: "function",
+		"constant": false,
+		"anonymous": false
 	},
 	{
-		inputs: [
+		"name": "balanceOfBatch",
+		"type": "function",
+		"payable": false,
+		"inputs": [
 			{
-				internalType: "address[]",
-				name: "accounts",
-				type: "address[]",
+				"name": "accounts",
+				"type": "address[]",
+				"indexed": false
 			},
 			{
-				internalType: "uint256[]",
-				name: "ids",
-				type: "uint256[]",
-			},
+				"name": "ids",
+				"type": "uint256[]",
+				"indexed": false
+			}
 		],
-		name: "balanceOfBatch",
-		outputs: [
+		"outputs": [
 			{
-				internalType: "uint256[]",
-				name: "",
-				type: "uint256[]",
-			},
+				"name": "",
+				"type": "uint256[]",
+				"indexed": false
+			}
 		],
-		stateMutability: "view",
-		type: "function",
+		"constant": false,
+		"anonymous": false
 	},
 	{
-		inputs: [
+		"name": "isApprovedForAll",
+		"type": "function",
+		"payable": false,
+		"inputs": [
 			{
-				internalType: "address",
-				name: "account",
-				type: "address",
+				"name": "account",
+				"type": "address",
+				"indexed": false
 			},
 			{
-				internalType: "address",
-				name: "operator",
-				type: "address",
-			},
+				"name": "operator",
+				"type": "address",
+				"indexed": false
+			}
 		],
-		name: "isApprovedForAll",
-		outputs: [
+		"outputs": [
 			{
-				internalType: "bool",
-				name: "",
-				type: "bool",
-			},
+				"name": "",
+				"type": "bool",
+				"indexed": false
+			}
 		],
-		stateMutability: "view",
-		type: "function",
+		"constant": false,
+		"anonymous": false
 	},
 	{
-		inputs: [],
-		name: "marketplace",
-		outputs: [
+		"name": "marketplace",
+		"type": "function",
+		"payable": false,
+		"inputs": [],
+		"outputs": [
 			{
-				internalType: "address",
-				name: "",
-				type: "address",
-			},
+				"name": "",
+				"type": "address",
+				"indexed": false
+			}
 		],
-		stateMutability: "view",
-		type: "function",
+		"constant": false,
+		"anonymous": false
 	},
 	{
-		inputs: [
+		"name": "mint",
+		"type": "function",
+		"payable": false,
+		"inputs": [
 			{
-				internalType: "uint256",
-				name: "_itemId",
-				type: "uint256",
+				"name": "_itemId",
+				"type": "uint256",
+				"indexed": false
 			},
 			{
-				internalType: "uint256",
-				name: "_amount",
-				type: "uint256",
+				"name": "_amount",
+				"type": "uint256",
+				"indexed": false
 			},
 			{
-				internalType: "address",
-				name: "_to",
-				type: "address",
-			},
+				"name": "_to",
+				"type": "address",
+				"indexed": false
+			}
 		],
-		name: "mint",
-		outputs: [],
-		stateMutability: "nonpayable",
-		type: "function",
+		"outputs": [],
+		"constant": false,
+		"anonymous": false
 	},
 	{
-		inputs: [],
-		name: "owner",
-		outputs: [
+		"name": "owner",
+		"type": "function",
+		"payable": false,
+		"inputs": [],
+		"outputs": [
 			{
-				internalType: "address",
-				name: "",
-				type: "address",
-			},
+				"name": "",
+				"type": "address",
+				"indexed": false
+			}
 		],
-		stateMutability: "view",
-		type: "function",
+		"constant": false,
+		"anonymous": false
 	},
 	{
-		inputs: [],
-		name: "renounceOwnership",
-		outputs: [],
-		stateMutability: "nonpayable",
-		type: "function",
+		"name": "renounceOwnership",
+		"type": "function",
+		"payable": false,
+		"inputs": [],
+		"outputs": [],
+		"constant": false,
+		"anonymous": false
 	},
 	{
-		inputs: [
+		"name": "safeBatchTransferFrom",
+		"type": "function",
+		"payable": false,
+		"inputs": [
 			{
-				internalType: "address",
-				name: "from",
-				type: "address",
+				"name": "from",
+				"type": "address",
+				"indexed": false
 			},
 			{
-				internalType: "address",
-				name: "to",
-				type: "address",
+				"name": "to",
+				"type": "address",
+				"indexed": false
 			},
 			{
-				internalType: "uint256[]",
-				name: "ids",
-				type: "uint256[]",
+				"name": "ids",
+				"type": "uint256[]",
+				"indexed": false
 			},
 			{
-				internalType: "uint256[]",
-				name: "amounts",
-				type: "uint256[]",
+				"name": "amounts",
+				"type": "uint256[]",
+				"indexed": false
 			},
 			{
-				internalType: "bytes",
-				name: "data",
-				type: "bytes",
-			},
+				"name": "data",
+				"type": "bytes",
+				"indexed": false
+			}
 		],
-		name: "safeBatchTransferFrom",
-		outputs: [],
-		stateMutability: "nonpayable",
-		type: "function",
+		"outputs": [],
+		"constant": false,
+		"anonymous": false
 	},
 	{
-		inputs: [
+		"name": "safeTransferFrom",
+		"type": "function",
+		"payable": false,
+		"inputs": [
 			{
-				internalType: "address",
-				name: "from",
-				type: "address",
+				"name": "from",
+				"type": "address",
+				"indexed": false
 			},
 			{
-				internalType: "address",
-				name: "to",
-				type: "address",
+				"name": "to",
+				"type": "address",
+				"indexed": false
 			},
 			{
-				internalType: "uint256",
-				name: "id",
-				type: "uint256",
+				"name": "id",
+				"type": "uint256",
+				"indexed": false
 			},
 			{
-				internalType: "uint256",
-				name: "amount",
-				type: "uint256",
+				"name": "amount",
+				"type": "uint256",
+				"indexed": false
 			},
 			{
-				internalType: "bytes",
-				name: "data",
-				type: "bytes",
-			},
+				"name": "data",
+				"type": "bytes",
+				"indexed": false
+			}
 		],
-		name: "safeTransferFrom",
-		outputs: [],
-		stateMutability: "nonpayable",
-		type: "function",
+		"outputs": [],
+		"constant": false,
+		"anonymous": false
 	},
 	{
-		inputs: [
+		"name": "setApprovalForAll",
+		"type": "function",
+		"payable": false,
+		"inputs": [
 			{
-				internalType: "address",
-				name: "operator",
-				type: "address",
+				"name": "operator",
+				"type": "address",
+				"indexed": false
 			},
 			{
-				internalType: "bool",
-				name: "approved",
-				type: "bool",
-			},
+				"name": "approved",
+				"type": "bool",
+				"indexed": false
+			}
 		],
-		name: "setApprovalForAll",
-		outputs: [],
-		stateMutability: "nonpayable",
-		type: "function",
+		"outputs": [],
+		"constant": false,
+		"anonymous": false
 	},
 	{
-		inputs: [
+		"name": "setMarketplace",
+		"type": "function",
+		"payable": false,
+		"inputs": [
 			{
-				internalType: "address",
-				name: "_marketplace",
-				type: "address",
-			},
+				"name": "_marketplace",
+				"type": "address",
+				"indexed": false
+			}
 		],
-		name: "setMarketplace",
-		outputs: [],
-		stateMutability: "nonpayable",
-		type: "function",
+		"outputs": [],
+		"constant": false,
+		"anonymous": false
 	},
 	{
-		inputs: [
+		"name": "supportsInterface",
+		"type": "function",
+		"payable": false,
+		"inputs": [
 			{
-				internalType: "bytes4",
-				name: "interfaceId",
-				type: "bytes4",
-			},
+				"name": "interfaceId",
+				"type": "bytes4",
+				"indexed": false
+			}
 		],
-		name: "supportsInterface",
-		outputs: [
+		"outputs": [
 			{
-				internalType: "bool",
-				name: "",
-				type: "bool",
-			},
+				"name": "",
+				"type": "bool",
+				"indexed": false
+			}
 		],
-		stateMutability: "view",
-		type: "function",
+		"constant": false,
+		"anonymous": false
 	},
 	{
-		inputs: [
+		"name": "transferOwnership",
+		"type": "function",
+		"payable": false,
+		"inputs": [
 			{
-				internalType: "address",
-				name: "newOwner",
-				type: "address",
-			},
+				"name": "newOwner",
+				"type": "address",
+				"indexed": false
+			}
 		],
-		name: "transferOwnership",
-		outputs: [],
-		stateMutability: "nonpayable",
-		type: "function",
+		"outputs": [],
+		"constant": false,
+		"anonymous": false
 	},
 	{
-		inputs: [
+		"name": "uri",
+		"type": "function",
+		"payable": false,
+		"inputs": [
 			{
-				internalType: "uint256",
-				name: "",
-				type: "uint256",
-			},
+				"name": "",
+				"type": "uint256",
+				"indexed": false
+			}
 		],
-		name: "uri",
-		outputs: [
+		"outputs": [
 			{
-				internalType: "string",
-				name: "",
-				type: "string",
-			},
+				"name": "",
+				"type": "string",
+				"indexed": false
+			}
 		],
-		stateMutability: "view",
-		type: "function",
-	},
+		"constant": false,
+		"anonymous": false
+	}
 ];

@@ -4,21 +4,20 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>NFT Knight</title>
+		<title>The Knight Rain Game</title>
 		<script
 			src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
 			type="application/javascript"
 		></script>
 		<script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
-		<script type="module" src="eth.js"></script>
-		<script type="module" src="GameToken.js"></script>
+		<script type="module" src="./eth.js"></script>
+		<script type="module" src="./GameToken.js"></script>
 	</head>
 	<body>
-		<h1>NFT Knight</h1>
 		<br />
-		<button onclick="buyItem(1)">Buy Pump Talisman, 0.0001 POT</button>
-		<button onclick="buyItem(2)">Buy Super Boots, 0.0002 POT</button>
-		<button onclick="buyItem(3)">Buy Timewarp Cape, 0.0003 POT</button>
+		<button onclick="buyItems(1)">Buy Pump Talisman, .001 NITE</button>
+		<button onclick="buyItems(2)">Buy Super Boots, .002 NITE</button>
+		<button onclick="buyItems(3)">Buy Timewarp Cape, .003 NITE</button>
 		<br />
 		<br />
 		<script>
@@ -31,7 +30,7 @@
 
 			//Game variables
 			var score = 0;
-			var secondsLeft = 60;
+			var secondsLeft = 30;
 
 			//Timer variables
 			var coinTimer;
@@ -72,11 +71,10 @@
 				},
 			};
 
-			var game;
-			
-			getUserItems(function() {
+	 // getUserItems(function() {
 				game = new Phaser.Game(config);
-			})
+  // 	})
+      getUserItems();
 
 			function preload() {
 				console.log("Loading assets");
@@ -240,7 +238,7 @@
 			function collectCoin(knight, coin) {
 				coin.disableBody(true, true);
 				score++;
-				scoreText.setText(`Bitcoin Bag: ${score}`);
+				scoreText.setText(`NITE Bag: ${score}`);
 				console.log(`Score: ${score}`);
 			}
 
@@ -248,12 +246,12 @@
 				if (gameOver) {
 					if (!coinsSent) {
 						var address = prompt(
-							"Where would you like to send your tokens? (ETH Address)"
+							"Where would you like to send your NITE tokens? (HTML Address)"
 						);
 						if (address == null || address == "") {
 							alert("Transaction cancelled");
 						} else {
-							window.mintAfterGame(
+							window.mint(
 								address,
 								ethers.utils.parseEther(score.toString())
 							);

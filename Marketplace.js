@@ -1,26 +1,37 @@
 export default [
 	{
-		inputs: [
+		"name": "",
+		"type": "constructor",
+		"payable": false,
+		"inputs": [
 			{
-				internalType: "contract GameItems",
-				name: "item",
-				type: "address",
+				"name": "item",
+				"type": "address",
+				"indexed": false
 			},
+			{
+				"name": "potato",
+				"type": "address",
+				"indexed": false
+			}
 		],
-		stateMutability: "nonpayable",
-		type: "constructor",
+		"outputs": null,
+		"constant": false,
+		"anonymous": false
 	},
 	{
-		inputs: [
+		"name": "buyItem",
+		"type": "function",
+		"payable": false,
+		"inputs": [
 			{
-				internalType: "uint256",
-				name: "_itemId",
-				type: "uint256",
-			},
+				"name": "_itemId",
+				"type": "uint256",
+				"indexed": false
+			}
 		],
-		name: "buyItem",
-		outputs: [],
-		stateMutability: "payable",
-		type: "function",
-	},
+		"outputs": [],
+		"constant": false,
+		"anonymous": false
+	}
 ];
